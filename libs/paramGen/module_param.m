@@ -180,7 +180,7 @@ DopplerProcClutterRemove_dopplerFFTSize = DopplerFFTSize;       % Doppler FFT si
 DopplerProcClutterRemove_numChirpsPerVirAnt  = numChirpsPerVirAnt;
 DopplerProcClutterRemove_dopplerWindowEnable = 0;                    % flag to enable or disable windowing before Doppler FFT
 windowCoeff = hanning(numChirpsPerVirAnt);
-DopplerProcClutterRemove_dopplerWindowCoeff = windowCoeff(1:(numChirpsPerVirAnt/2));
+DopplerProcClutterRemove_dopplerWindowCoeff = windowCoeff(1:(round(numChirpsPerVirAnt/2)));
 DopplerProcClutterRemove_scaleFactorDoppler  = scaleFactor(max(log2(DopplerFFTSize) - 3, 1));
 DopplerProcClutterRemove_FFTOutScaleOn = 0; %1: apply scaleFactorRange; 0: scaling factor not applied
 DopplerProcClutterRemove_clutterRemove = 0;  %1=enable clutter removal; 0=no

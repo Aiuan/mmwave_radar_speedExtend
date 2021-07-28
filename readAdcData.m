@@ -22,6 +22,7 @@ function rawAdcData = readAdcData(subFramesInfo, frameId, parameter_files_path)
         [radar_data_Rxchain_slave3] = readBinFile(fileFullPath_slave3, subframeIdx,numSamplePerChirp,numChirpPerLoop,numLoops, numRXPerDevice);
 
         % Arranged based on Master RxChannels, Slave1 RxChannels, slave2 RxChannels, slave3 RxChannels
+        clear radar_data_Rxchain;
         radar_data_Rxchain(:,:,1:4,:) = radar_data_Rxchain_master;
         radar_data_Rxchain(:,:,5:8,:) = radar_data_Rxchain_slave1;
         radar_data_Rxchain(:,:,9:12,:) = radar_data_Rxchain_slave2;

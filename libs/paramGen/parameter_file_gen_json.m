@@ -90,8 +90,18 @@ function param_results = parameter_file_gen_json(paramFile, dataFolder_calib, pa
         fprintf(fidParam, ['TxToEnable = [' num2str(params_chirp.TxToEnable) ']' ';\n']);
         fprintf(fidParam, 'numRxToEnable = %d; \n', length(params_chirp.RxToEnable));
         fprintf(fidParam, ['RxToEnable = [' num2str(params_chirp.RxToEnable) ']' ';\n']);
-        fprintf(fidParam, ['totTransferOrder = [' num2str(TxChannelEnabled) ']' ';\n']);
-        fprintf(fidParam, ['curTransferOrder = [' num2str(TxChannelEnabled(subFrameId * num_chirpsInLoop + 1:subFrameId * num_chirpsInLoop + num_chirpsInLoop)) ']' ';\n']);
+        
+        totTransferOrder = [];
+        for i = 0:params_chirp.DevConfig(1).AdvFrame.NumSubFrames-1
+            temp_chirpStartIdx = params_chirp.DevConfig(1).AdvFrame.SubFrame(i+1).ChirpStartIdx;
+            temp_num_chirpsInLoop = params_chirp.DevConfig(1).AdvFrame.SubFrame(i+1).NumChirp;
+            totTransferOrder = [totTransferOrder TxChannelEnabled(temp_chirpStartIdx + 1 : temp_chirpStartIdx + temp_num_chirpsInLoop)];
+        end
+        fprintf(fidParam, ['totTransferOrder = [' num2str(totTransferOrder) ']' ';\n']);
+        
+        chirpStartIdx = params_chirp.DevConfig(1).AdvFrame.SubFrame(subFrameId+1).ChirpStartIdx;
+        curTransferOrder = TxChannelEnabled(chirpStartIdx + 1 : chirpStartIdx + num_chirpsInLoop);
+        fprintf(fidParam, ['curTransferOrder = [' num2str(curTransferOrder) ']' ';\n']);
 
         Start_Freq_Hz = params_chirp.DevConfig(1).Profile.StartFreq * 1e9;
         AdcStartTime_s = params_chirp.DevConfig(1).Profile.AdcStartTime * 1e-6;

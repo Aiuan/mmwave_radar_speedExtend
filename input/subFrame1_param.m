@@ -8,7 +8,7 @@ numADCSample = 2.560000e+02;
 adcSampleRate = 2.250000e+07; %Hz/s 
 startFreqConst = 7.700000e+10; %Hz 
 chirpSlope = 4.200300e+13; %Hz/s 
-chirpIdleTime = 1.000000e-05; %s 
+chirpIdleTime = 2.000000e-06; %s 
 adcStartTimeConst = 2.720000e-06; %s 
 chirpRampEndTime = 1.432000e-05; %s 
 
@@ -16,9 +16,9 @@ chirpRampEndTime = 1.432000e-05; %s
 frameCount = 600; 
 NumSubFrames = 2; 
 %current subFrame advancedFrameChirp parameters: 
-ChirpStartIdx = 12; 
-NumChirp = 12; 
-NumChirpLoops = 64; 
+ChirpStartIdx = 8; 
+NumChirp = 4; 
+NumChirpLoops = 255; 
 BurstPeriod = 25; %ms 
 NumBurst = 1; 
 NumBurstLoops = 1; 
@@ -28,8 +28,8 @@ numTxToEnable = 12;
 TxToEnable = [1   2   3   4   5   6   7   8   9  10  11  12];
 numRxToEnable = 16; 
 RxToEnable = [1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16];
-totTransferOrder = [12  11  10   9   8   7   6   5   4   3   2   1  12  11  10   9   8   7   6   5   4   3   2   1];
-curTransferOrder = [12  11  10   9   8   7   6   5   4   3   2   1];
+totTransferOrder = [12  11  10   9   8   7   6   5   4   3   2   1   4   3   2   1];
+curTransferOrder = [4  3  2  1];
 centerFreq = 7.735320e+01; 
 
 %% pass the slope used for calibration 
@@ -187,7 +187,7 @@ DopplerProcClutterRemove_dopplerFFTSize = DopplerFFTSize;       % Doppler FFT si
 DopplerProcClutterRemove_numChirpsPerVirAnt  = numChirpsPerVirAnt;
 DopplerProcClutterRemove_dopplerWindowEnable = 0;                    % flag to enable or disable windowing before Doppler FFT
 windowCoeff = hanning(numChirpsPerVirAnt);
-DopplerProcClutterRemove_dopplerWindowCoeff = windowCoeff(1:(numChirpsPerVirAnt/2));
+DopplerProcClutterRemove_dopplerWindowCoeff = windowCoeff(1:(round(numChirpsPerVirAnt/2)));
 DopplerProcClutterRemove_scaleFactorDoppler  = scaleFactor(max(log2(DopplerFFTSize) - 3, 1));
 DopplerProcClutterRemove_FFTOutScaleOn = 0; %1: apply scaleFactorRange; 0: scaling factor not applied
 DopplerProcClutterRemove_clutterRemove = 0;  %1=enable clutter removal; 0=no

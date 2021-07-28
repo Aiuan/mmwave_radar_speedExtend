@@ -21,7 +21,7 @@ function adcData = calibAdcData(rawAdcData, calibFileName, parameter_files_path)
         PeakValMat = calibData.calibResult.PeakValMat;
         phaseCalibOnly = getPara(parameter_files_path(i_subFrame+1).path, 'calibrationCascade_phaseCalibOnly');
         
-        
+        clear outData;
         TX_ref = curTransferOrder(1);
         for iTX = 1: numTX
             TXind = curTransferOrder(iTX);
