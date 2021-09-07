@@ -28,7 +28,7 @@ numTxToEnable = 12;
 TxToEnable = [1   2   3   4   5   6   7   8   9  10  11  12];
 numRxToEnable = 16; 
 RxToEnable = [1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16];
-totTransferOrder = [12  11  10   9   8   7   6   5   4   3   2   1   4   3   2   1];
+totTransferOrder = [12  11  10   9   8   7   6   5   4   3   2   1  12  11  10   9   8   7   6   5   4   3   2   1];
 curTransferOrder = [12  11  10   9   8   7   6   5   4   3   2   1];
 centerFreq = 7.735320e+01; 
 
@@ -277,11 +277,11 @@ DOACascade_numAntenna = numVirtualRxAnt;
 DOACascade_antPos = [0:numVirtualRxAnt-1];
 DOACascade_antDis = d_optimal;              % in terms of lamda
 DOACascade_method = 1;                % 1: 2D  muli-object beamforming, 2: 2D  muli-object beamforming and peak search after azi/ele FFT
-DOACascade_angles_DOA_az=[-80 80]; %field of view to run 2D DOA in azimuth
+DOACascade_angles_DOA_az=[-70 70]; %field of view to run 2D DOA in azimuth
 DOACascade_angles_DOA_ele = [-20 20];%field of view to run 2D DOA in elevation
 DOACascade_gamma  = 10^(0.2/10);      % Used in peak detection
 DOACascade_sidelobeLevel_dB_azim = 1; % used to reject sidelobe in azimuth run 2D DOA
-DOACascade_sidelobeLevel_dB_elev = 0;% used to reject sidelobe in elevation run 2D DOA
+DOACascade_sidelobeLevel_dB_elev = 1;% used to reject sidelobe in elevation run 2D DOA
 DOACascade_dopplerFFTSize = DopplerFFTSize;
 
 

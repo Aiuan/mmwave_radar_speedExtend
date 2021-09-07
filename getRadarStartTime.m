@@ -1,6 +1,14 @@
-function radarStartTime = getRadarStartTime(radarTimeFile)
-    f = fopen(fullfile(radarTimeFile.folder, radarTimeFile.name), 'r');
-    radarStartTime = fscanf(f, '%f');
+function radarStartTime = getRadarStartTime(path)
+    f = fopen(path, 'r');
+%     if skipOneSubframe_ON
+%         subFrameId = 1;
+%     else
+%         subFrameId = 0;
+%     end
+    subFrameId = 0;
+    %         uint64_t timestamp;
+    fseek(f, 24 + subFrameId * 48 + 32, 'bof');
+    radarStartTime = uint64(fread(f, 1,'uint64'));
+    
     fclose(f);
-    radarStartTime = uint64(radarStartTime*1000000);%16位UNIX时间
 end

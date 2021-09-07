@@ -1,17 +1,16 @@
 clear all; close all; clc;
 
 % ====================user's modify=====================
-radarFolder = 'K:\ourDataset\20210715\radar\mode4Group1';
-% radarFolder = 'K:\ourDataset\20210428\radar\mode3Group1';
+radarFolder = 'K:\ourDataset\20210715\radar\mode3Group1';
 
 calibFileName = 'input/20210715.mat';
 pathGenParaFolder = 'input';
-saveFileName = 'run/mode5Group1.mat';
+saveFileName = 'runs/mode3Group1.mat';
 
 %% check startTime.txt
 radarTimeFile = dir(fullfile(radarFolder, '*.startTime.txt'));
 % radar start time from PC
-radarStartTime = getRadarStartTime(radarTimeFile);
+pcStartTime = getPCStartTime(radarTimeFile);
 
 %% check mmwave.json
 radarInfoFile = dir(fullfile(radarFolder, '*.mmwave.json'));

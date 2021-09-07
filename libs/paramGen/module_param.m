@@ -270,11 +270,11 @@ DOACascade_numAntenna = numVirtualRxAnt;
 DOACascade_antPos = [0:numVirtualRxAnt-1];
 DOACascade_antDis = d_optimal;              % in terms of lamda
 DOACascade_method = 1;                % 1: 2D  muli-object beamforming, 2: 2D  muli-object beamforming and peak search after azi/ele FFT
-DOACascade_angles_DOA_az=[-80 80]; %field of view to run 2D DOA in azimuth
+DOACascade_angles_DOA_az=[-70 70]; %field of view to run 2D DOA in azimuth
 DOACascade_angles_DOA_ele = [-20 20];%field of view to run 2D DOA in elevation
 DOACascade_gamma  = 10^(0.2/10);      % Used in peak detection
 DOACascade_sidelobeLevel_dB_azim = 1; % used to reject sidelobe in azimuth run 2D DOA
-DOACascade_sidelobeLevel_dB_elev = 0;% used to reject sidelobe in elevation run 2D DOA
+DOACascade_sidelobeLevel_dB_elev = 1;% used to reject sidelobe in elevation run 2D DOA
 DOACascade_dopplerFFTSize = DopplerFFTSize;
 
 
