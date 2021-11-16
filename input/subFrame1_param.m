@@ -13,7 +13,7 @@ adcStartTimeConst = 2.720000e-06; %s
 chirpRampEndTime = 1.432000e-05; %s 
 
 %master advancedFrameChirp parameters: 
-frameCount = 600; 
+frameCount = 1200; 
 NumSubFrames = 2; 
 %current subFrame advancedFrameChirp parameters: 
 ChirpStartIdx = 12; 
@@ -281,7 +281,7 @@ DOACascade_angles_DOA_az=[-70 70]; %field of view to run 2D DOA in azimuth
 DOACascade_angles_DOA_ele = [-20 20];%field of view to run 2D DOA in elevation
 DOACascade_gamma  = 10^(0.2/10);      % Used in peak detection
 DOACascade_sidelobeLevel_dB_azim = 1; % used to reject sidelobe in azimuth run 2D DOA
-DOACascade_sidelobeLevel_dB_elev = 1;% used to reject sidelobe in elevation run 2D DOA
+DOACascade_sidelobeLevel_dB_elev = 0;% used to reject sidelobe in elevation run 2D DOA
 DOACascade_dopplerFFTSize = DopplerFFTSize;
 
 

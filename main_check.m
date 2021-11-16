@@ -1,11 +1,11 @@
 clear all; close all; clc;
 
 % ====================user's modify=====================
-radarFolder = 'K:\ourDataset\20210715\radar\mode3Group1';
+radarFolder = 'F:\mmwaveData\20211008\20211008_mode3_group1';
 
 calibFileName = 'input/20210715.mat';
 pathGenParaFolder = 'input';
-saveFileName = 'runs/mode3Group1.mat';
+saveFileName = 'runs/20211008_mode3_group1.mat';
 
 %% check startTime.txt
 radarTimeFile = dir(fullfile(radarFolder, '*.startTime.txt'));
